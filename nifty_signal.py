@@ -65,7 +65,7 @@ def get_all_data():
         "TATA MOTORS":   "M&M.NS",
         "TATA STEEL":    "TATASTEEL.NS",
         "ONGC":          "ONGC.NS",
-        "NIFTY FIN":     "NIFTYFIN.NS",
+        "NIFTYFIN.NS":     "NIFTYFIN.NS",
         "FINNIFTY":      "NIFTY_FIN_SERVICE.NS",
     }
     results = {}
@@ -146,7 +146,7 @@ BankNifty Support: [level] | Resistance: [level]
 Use simple English. No jargon."""
 
     response = client.chat.completions.create(
-        model="llama3-8b-8192",
+        model="llama-3.3-70b-versatile",
         messages=[{"role": "user", "content": prompt}],
         max_tokens=600
     )
