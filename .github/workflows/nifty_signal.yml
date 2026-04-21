@@ -2,22 +2,29 @@ name: Nifty AI Signal
 
 on:
   schedule:
-    - cron: '45 0 2 * * 1-5'
+    - cron: '45 2 * * 1-5'
   workflow_dispatch:
 
 jobs:
   send-signal:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-python@v4
-      with:
-        python-version: '3.11'
-    - name: Install packages
-      run: pip install yfinance groq requests pandas numpy --upgrade
-    - name: Run bot
-      env:
-        GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-      run: python nifty_signal.py
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install packages
+        run: |
+          pip install yfinance groq requests pandas numpy --upgrade
+
+      - name: Run bot
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python nifty_signal.py
