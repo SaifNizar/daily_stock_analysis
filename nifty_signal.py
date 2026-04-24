@@ -40,6 +40,10 @@ def get_data(name, ticker):
 
         if hist is None or hist.empty:
             return {"name": name, "error": "No data"}
+            hist = hist.dropna(subset=["Close"])  # ← ADD THIS LINE ONLY
+
+    if len(hist) < 2:
+    return {"name": name, "error": "Not enough data"}
 
         current  = hist["Close"].iloc[-1]
         prev     = hist["Close"].iloc[-2]
