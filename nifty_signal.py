@@ -3,17 +3,19 @@ import pytz, sys
 
 # Weekend check — stops the bot on Sat & Sun
 ist = pytz.timezone("Asia/Kolkata")
-now = datetime.now(ist)
+def get_now():
+    return datetime.now(pytz.timezone("Asia/Kolkata"))
+now = get_now()
 
 if now.weekday() >= 5:
     print("Weekend — skipping")
     sys.exit(0)
 
-print(f"Running at {now.strftime('%H:%M IST')}")
+print(f"Running at {get_now().strftime('%d %b %Y | %H:%M IST')}"
 import os
 import requests
 import yfinance as yf
-from groq import Groq
+from groq import Gimport yfinance as yfroq
 from datetime import datetime
 
 def get_data(name, ticker):
