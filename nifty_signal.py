@@ -5,9 +5,9 @@ import pytz, sys
 ist = pytz.timezone("Asia/Kolkata")
 now = datetime.now(ist)
 
-#if now.weekday() >= 5:
-    #print("Weekend — skipping")
-    #sys.exit(0)
+if now.weekday() >= 5:
+    print("Weekend — skipping")
+    sys.exit(0)
 
 print(f"Running at {now.strftime('%H:%M IST')}")
 import os
