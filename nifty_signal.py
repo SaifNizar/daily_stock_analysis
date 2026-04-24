@@ -11,7 +11,8 @@ if now.weekday() >= 5:
     print("Weekend — skipping")
     sys.exit(0)
 
-print(f"Running at {get_now().strftime('%d %b %Y | %H:%M IST')}"
+ts = get_now().strftime("%d %b %Y | %H:%M IST")
+print("Running at " + ts)
 import os
 import requests
 import yfinance as yf
