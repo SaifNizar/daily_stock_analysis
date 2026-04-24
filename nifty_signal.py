@@ -37,12 +37,12 @@ def get_data(name, ticker):
         low = hist['Low'].iloc[-1]
         return {
             "name": name,
-            "price": round(float(current), 2),
-            "change": round(float(change), 2),
-            "pct": round(float(pct), 2),
-            "rsi": round(float(rsi), 2),
-            "high": round(float(high), 2),
-            "low": round(float(low), 2),
+            "price": round(float(current), 2) if str(current) != 'nan' else 0,
+            "change": round(float(change), 2) if str(change) != 'nan' else 0,
+            "pct": round(float(pct), 2) if str(pct) != 'nan' else 0,
+            "rsi": round(float(rsi), 2) if str(rsi) != 'nan' else 0,
+            "high": round(float(high), 2) if str(high) != 'nan' else 0,
+            "low": round(float(low), 2) if str(low) != 'nan' else 0,
         }
     except Exception as e:
         return {"name": name, "error": str(e)}
