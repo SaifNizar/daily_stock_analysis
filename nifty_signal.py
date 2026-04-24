@@ -16,7 +16,8 @@ print("Running at " + ts)
 import os
 import requests
 import yfinance as yf
-from groq import Gimport yfinance as yfroq
+from groq import Groq
+import yfinance as yf
 from datetime import datetime
 
 def get_data(name, ticker):
