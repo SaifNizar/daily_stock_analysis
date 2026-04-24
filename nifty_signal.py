@@ -7,9 +7,9 @@ def get_now():
     return datetime.now(pytz.timezone("Asia/Kolkata"))
 now = get_now()
 
-if now.weekday() >= 5:
-    print("Weekend — skipping")
-    sys.exit(0)
+#if now.weekday() >= 5:
+    #print("Weekend — skipping")
+    #sys.exit(0)
 
 ts = get_now().strftime("%d %b %Y | %H:%M IST")
 print("Running at " + ts)
