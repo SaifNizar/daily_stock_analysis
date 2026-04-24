@@ -1,3 +1,15 @@
+from datetime import datetime
+import pytz, sys
+
+# Weekend check — stops the bot on Sat & Sun
+ist = pytz.timezone("Asia/Kolkata")
+now = datetime.now(ist)
+
+if now.weekday() >= 5:
+    print("Weekend — skipping")
+    sys.exit(0)
+
+print(f"Running at {now.strftime('%H:%M IST')}")
 import os
 import requests
 import yfinance as yf
