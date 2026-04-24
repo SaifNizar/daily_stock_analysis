@@ -184,7 +184,7 @@ def send_telegram(message):
 def main():
     print("Fetching market data...")
     data = get_all_data()
-    now = datetime.now().strftime("%d %b %Y | %H:%M IST")
+    now = datetime.now().{_ts.strftime('%d %b %Y | %H:%M IST')}\n
     header = f"🤖 <b>AI MARKET INTELLIGENCE</b>\n📅 {now}\n━━━━━━━━━━━━━━━━━━━━\n\n"
     print("Building message...")
     indices_msg = format_indices(data)
